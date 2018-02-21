@@ -26,23 +26,23 @@ public class DriverFactory {
         WebDriver instance = null;
         switch (browserType) {
             case CHROME: {
-                System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
-                instance = new ChromeDriver();
+                    System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
+                    instance = new ChromeDriver();
                 break;
             }
             case IE: {
                 System.setProperty("webdriver.ie.driver", "src\\main\\resources\\drivers\\IEDriverServer.exe");
                 DesiredCapabilities ds = new DesiredCapabilities();
                 ds.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
-                ds.setCapability(CapabilityType.VERSION, "8");
+                ds.setCapability("protectedMode",true);
                 ds.setCapability(CapabilityType.PLATFORM_NAME, "WINDOWS");
                 DesiredCapabilities internetExplorer8 = DesiredCapabilities.internetExplorer();
-                internetExplorer8.setVersion("10");
-                instance = new InternetExplorerDriver(internetExplorer8);
+
+                instance = new InternetExplorerDriver();
                 break;
             }
             case OPERA: {
-                String operaBrowserLocation = "C:\\Program Files\\Opera\\51.0.2830.26\\opera.exe";
+                String operaBrowserLocation = "C:\\Program Files\\Opera\\51.0.2830.34\\opera.exe";
                 System.setProperty("webdriver.opera.driver", "src\\main\\resources\\drivers\\operadriver.exe");
                 ChromeOptions options = new ChromeOptions();
                 options.setBinary(operaBrowserLocation);

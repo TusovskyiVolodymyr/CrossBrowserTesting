@@ -3,23 +3,27 @@ import com.epam.drivers.BrowserType;
 import com.epam.drivers.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.*;
 
 @Test()
 public class ParrallelExecutionTest {
     @Parameters("browser")
     public void test1(String browser) {
 
-        if (browser.equalsIgnoreCase("Firefox")) {
+        if (browser.equalsIgnoreCase("Opera")) {
 
-            System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\drivers\\geckodriver.exe");
-
-            WebDriver driver = new FirefoxDriver();
+            String operaBrowserLocation = "C:\\Program Files\\Opera\\51.0.2830.34\\opera.exe";
+            System.setProperty("webdriver.opera.driver", "src\\main\\resources\\drivers\\operadriver.exe");
+            ChromeOptions options = new ChromeOptions();
+            options.setBinary(operaBrowserLocation);
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+            WebDriver driver = new OperaDriver(capabilities);
 
             driver.manage().window().maximize();
 
