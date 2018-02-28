@@ -34,7 +34,8 @@ public class DriverFactory {
                 System.setProperty("webdriver.ie.driver", "src\\main\\resources\\drivers\\IEDriverServer.exe");
                 DesiredCapabilities ds = new DesiredCapabilities();
                 ds.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
-                ds.setCapability("protectedMode",true);
+                ds.setCapability("allow-blocked-content", true);
+                ds.setCapability("allowBlockedContent", true);
                 ds.setCapability(CapabilityType.PLATFORM_NAME, "WINDOWS");
                 DesiredCapabilities internetExplorer8 = DesiredCapabilities.internetExplorer();
 

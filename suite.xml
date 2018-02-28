@@ -19,4 +19,10 @@
             <class name="AccessSpeedTest"/>
         </classes>
     </test>
+    <test name="Test3">
+        <parameter name="browser" value="Firefox"/>
+        <classes>
+            <class name="AccessSpeedTest"/>
+        </classes>
+    </test>
 </suite>

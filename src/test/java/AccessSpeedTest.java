@@ -22,7 +22,6 @@ public class AccessSpeedTest {
         }else if (browser.equalsIgnoreCase("ie")){
             driver = DriverFactory.getWebDriver(BrowserType.IE);
         }
-//        driver = DriverFactory.getWebDriver(BrowserType.OPERA);
         loginBO = new LoginBO();
     }
 
