@@ -13,14 +13,14 @@ public class DataProviderClass {
         };
     }
 
-    @DataProvider(name = "Complicated")
+    @DataProvider(name = "Complicated", parallel = true)
     public static Object[][] complicated() {
         return new Object[][]{
-//                {"NAME", By.name("test_name")},
-//                {"ID", By.id("test_id")},
-//                {"CLASSNAME", By.className("test_class_name")},
-//                {"CSS", By.cssSelector("#test_id")},
-                {"XPATH", By.xpath("//*[@class='test_class_name']")}
+                {"NAME", By.name("username")},
+                {"ID", By.id("username")},
+//                {"CLASSNAME", By.className("username")},
+                {"CSS", By.cssSelector("#username")},
+                {"XPATH", By.xpath("//input[@name='username']")}
         };
     }
 
